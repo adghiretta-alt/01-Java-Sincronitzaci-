@@ -7,7 +7,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class Ejercicio0 {
 
     public static void main(String[] args) {
-        // Creem un CyclicBarrier per a 3 fils
         CyclicBarrier barrier = new CyclicBarrier(3, new Runnable() {
             @Override
             public void run() {
@@ -15,10 +14,8 @@ public class Ejercicio0 {
             }
         });
 
-        // Executor per gestionar els fils
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
-        // Tasques que simulen els microserveis
         Runnable microservice1 = () -> {
             try {
                 System.out.println("Microservei 1 processant dades...");
@@ -53,7 +50,6 @@ public class Ejercicio0 {
             }
         };
 
-        // Executem les tasques
         executor.submit(microservice1);
         executor.submit(microservice2);
         executor.submit(microservice3);
